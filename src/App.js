@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import  ArtisanDashboard from './Components/ArtisanDashboard';
+import  Auth from './Components/Auth';
+import  Homepage from './Components/Homepage';
+import Payment from './Components/Payment';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          {/* Define routes for the different components */}
+          <Route exact path="/" component={Homepage} />
+          <Route path="/auth" component={Auth} />
+          <Route path="/artisan-dashboard" component={ArtisanDashboard} />
+          <Route path="/payment" component={Payment} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
